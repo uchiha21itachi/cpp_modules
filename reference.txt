@@ -1,0 +1,497 @@
+
+*********************************************
+Types of Class Member Functions in C++
+
+*********************************************
+
+Different types of Member functions:
+-----------------------------------
+
+	1. Simple functions
+	2. Static functions
+	3. Const functions
+	4. Inline functions
+	5. Friend functions
+
+
+****Friend Functions is a reason, why C++ is not called as a pure Object Oriented language. Because it violates the concept of Encapsulation. ****
+
+
+*********************************************
+Encapsulation in C++
+
+*********************************************
+
+In normal terms Encapsulation is defined as wrapping up of data and information under a single unit. In Object Oriented Programming, Encapsulation is defined as binding together the data and the functions that manipulates them.
+Consider a real life example of encapsulation, in a company there are different sections like the accounts section, finance section, sales section etc. The finance section handles all the financial transactions and keep records of all the data related to finance. Similarly the sales section handles all the sales related activities and keep records of all the sales. Now there may arise a situation when for some reason an official from finance section needs all the data about sales in a particular month. In this case, he is not allowed to directly access the data of sales section. He will first have to contact some other officer in the sales section and then request him to give the particular data. This is what encapsulation is. Here the data of sales section and the employees that can manipulate them are wrapped under a single name “sales section”.
+
+Encapsulation also lead to data abstraction or hiding. As using encapsulation also hides the data. In the above example the data of any of the section like sales, finance or accounts is hidden from any other section.
+
+
+
+*********************************************
+Function Overloading in C++
+
+*********************************************
+
+Overview
+----------------------------
+
+-If any class have multiple functions with same names but different parameters then they are said to be overloaded.
+
+-Function overloading allows you to use the same name for different functions, to perform, either same or different functions in the same class.
+
+-Function overloading is usually used to enhance the readability of the program.
+
+-If you have to perform one single operation but with different number or types of arguments, then you can simply overload the function.
+
+
+Different ways to Overload a Function
+----------------------------------------
+
+	1. By changing number of Arguments.
+	2. By having different types of argument.
+
+>Function Overloading: Different Number of Arguments
+------------------------------------------------------
+
+In this type of function overloading we define two functions with same names but different number of parameters of the same type.
+For example, 
+in the below mentioned program we have made two sum() functions to return sum of two and three integers.
+
+// first definition
+int sum (int x, int y)
+{
+    cout << x+y;
+}
+
+// second overloaded defintion
+int sum(int x, int y, int z)
+{
+    cout << x+y+z;
+}
+
+>Function Overloading: Different Datatype of Arguments
+----------------------------------------------------------
+
+In this type of overloading we define two or more functions with same name and same number of parameters, but the type of parameter is different. 
+For example 
+	in this program, we have two sum() function, first one gets two integer arguments and second one gets two double arguments.
+
+// first definition
+int sum(int x, int y)
+{
+    cout<< x+y;
+}
+
+// second overloaded defintion
+double sum(double x, double y)
+{
+    cout << x+y;
+}
+
+int main()
+{
+    sum (10,20);
+    sum(10.5,20.5);
+}
+
+*******************************************************
+>Functions with Default Arguments		****
+-----------------------------------
+*********************************************************
+When we mention a default value for a parameter while declaring the function, it is said to be as default argument. In this case, even if we make a call to the function without passing any value for that parameter, the function will take the default value specified.
+
+sum(int x, int y=0)
+{
+    cout << x+y;
+}
+Copy
+Here we have provided a default value for y, during function definition.
+
+
+int main()
+{
+    sum(10);
+    sum(10,0);
+    sum(10,10);
+}
+Copy
+10 10 20
+
+First two function calls will produce the exact same value.
+
+for the third function call, y will take 10 as value and output will become 20.
+
+By setting default argument, we are also overloading the function. Default arguments also allow you to use the same function in different situations just like function overloading.
+
+
+Rules for using Default Arguments
+-------------------------------------
+
+1. Only the last argument must be given default value.
+You cannot have a default argument followed by non-default argument.
+
+sum (int x,int y);    
+sum (int x,int y=0);  
+sum (int x=0,int y);  // This is Incorrect
+
+2. If you default an argument, then you will have to default all the subsequent arguments after that.
+
+sum (int x,int y=0);
+sum (int x,int y=0,int z);  // This is incorrect
+sum (int x,int y=10,int z=10);  // Correct
+
+3. You can give any value a default value to argument, compatible with its datatype.
+
+
+
+*********************************************
+Constructors and destructors
+
+*********************************************
+https://www.studytonight.com/cpp/constructors-and-destructors-in-cpp.php
+
+Types of Constructors in C++
+------------------------------------------
+
+Constructors are of three types:
+
+1. Default Constructor		// Zombies(void);
+2. Parametrized Constructor	//Zombies(int x){ age = x };
+3. Copy COnstructor		//
+
+
+Constructor Overloading in C++
+-------------------------------------
+
+You can have any number of Constructors in a class that differ in parameter list.
+
+class Student
+{
+    public:
+    int rollno;
+    string name;
+    // first constructor
+    Student(int x)
+    {
+        rollno = x;
+        name = "None";
+    }
+    // second constructor
+    Student(int x, string str)
+    {
+        rollno = x;
+        name = str;
+    }
+};
+
+int main()
+{
+    // student A initialized with roll no 10 and name None
+    Student A(10);
+    
+    // student B initialized with roll no 11 and name John
+    Student B(11, "John");
+}
+
+In above case we have defined two constructors with different parameters, hence overloading the constructors.
+
+One more important thing, if you define any constructor explicitly, then the compiler will not provide default constructor and you will have to define it yourself.
+
+In the above case if we write Student S; in main(), it will lead to a compile time error, because we haven't defined default constructor, and compiler will not provide its default constructor because we have defined other parameterized constructors.
+
+
+Destructors in C++
+-------------------------------------------------
+
+Destructor is a special class function which destroys the object as soon as the scope of object ends. The destructor is called automatically by the compiler when the object goes out of scope.
+
+The syntax for destructor is same as that for the constructor, the class name is used for the name of destructor, with a tilde ~ sign as prefix to it.
+
+Destructors will never have any arguments.
+
+
+class A
+{
+    // constructor
+    A()
+    {
+        cout << "Constructor called";
+    }
+
+    // destructor
+    ~A()
+    {
+        cout << "Destructor called";
+    }
+};
+
+int main()
+{
+    A obj1;   // Constructor Called
+    int x = 1
+    if(x)
+    {
+        A obj2;  // Constructor Called
+    }   // Destructor Called for obj2
+} //  Destructor called for obj1
+
+When an object is created the constructor of that class is called. The object reference is destroyed when its scope ends, which is generally after the closing curly bracket } for the code block in which it is created.
+
+The object obj2 is destroyed when the if block ends because it was created inside the if block. And the object obj1 is destroyed when the main() function ends.
+
+
+***Scope of object is an important thing to remember***
+
+Single Definition for both Default and Parameterized Constructor
+In this example we will use default argument to have a single definition for both defualt and parameterized constructor.
+
+class Dual
+{
+    public:
+    int a;
+    Dual(int x=0)
+    {
+        a = x;
+    }
+};
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+
+*********************************************
+Static Keyword in C++
+
+*********************************************
+
+
+
+*********************************************
+const Keyword in C++
+
+********************************************
+
+Constant is something that doesn't change.
+In C language and C++ we use the keyword const to make program elements constant. 
+const keyword can be used in many contexts in a C++ program. It can be used with:
+
+Variables
+Pointers
+Function arguments and return types
+Class Data members
+Class Member functions
+Objects
+
+
+1) Constant Variables in C++
+------------------------------------
+If you make any variable as constant, using const keyword, you cannot change its value. Also, the constant variables must be initialized while they are declared.
+
+int main
+{
+    const int i = 10;
+    const int j = i + 10;     // works fine
+    i++;    // this leads to Compile time error   
+}
+In the above code we have made i as constant, hence if we try to change its value, we will get compile time error. Though we can use it for substitution for other variables.
+
+2) Pointers with const keyword in C++
+--------------------------------------------
+
+	-Pointers can be declared using const keyword too. 
+	-When we use const with pointers, we can do it in two ways, 
+		2.a>either we can apply const to what the pointer is pointing to, or 
+		2.b>we can make the pointer itself a constant.
+	
+
+	2.A - Pointer to a const variable
+        -This means that the pointer is pointing to a const variable.
+			const int* u;
+		-Here, u is a pointer that can point to a const int type variable. 
+
+		We can also write it like,
+			char const* v;
+		still it has the same meaning. 
+		In this case also, v is a pointer to an char which is of const type.
+    Pointers to a const variable is very useful, as this can be used to make any string or array immutable(i.e they cannot be changed).
+
+
+    2.B - Const Pointer
+        -To make a pointer constant, we have to put the const keyword to the right of the *.
+
+        int x = 1;
+        int* const w = &x;
+        Here, w is a pointer, which is const, that points to an int. 
+        
+        Now we can't change the pointer, 
+        which means it will always point to the variable x but can change the value that it points to, 
+        by changing the value of x.
+
+    The constant pointer to a variable is useful where you want a storage that can be changed in value but not moved in memory. 
+    Because the pointer will always point to the same memory location, 
+    because it is defined with const keyword, but the value at that memory location can be changed.
+
+***
+NOTE: We can also have a const pointer pointing to a const variable.
+    const int* const x; 
+    ***
+
+3) const Function Arguments and Return types
+---------------------------------------------------------------
+
+    We can make the return type or arguments of a function as const. Then we cannot change any of them.
+
+    void f(const int i)
+    {
+        i++;    // error
+    }
+
+    const int g()
+    {
+        return 1;
+    }
+
+    **Some Important points to Remember
+    1. For built in datatypes, returning a const or non-const value, doesn't make any difference.
+        const int h()
+        {
+            return 1;
+        }
+
+        int main()
+        {
+            const int j = h();
+            int k = h();
+        }
+        Both j and k will be assigned the value 1. No error will occur.
+
+    2. For user defined datatypes, returning const, will prevent its modification.
+
+    3. Temporary objects created while program execution are always of const type.
+
+    4. If a function has a non-const parameter, it cannot be passed a const argument while making a call.
+        void t(int*) 
+        { 
+            // function logic
+        }
+        If we pass a const int* argument to the function t, it will give error.
+
+    5. But, a function which has a const type parameter, can be passed a const type argument as well as a non-const argument.
+        void g(const int*) 
+        {
+            // function logic
+        }
+        This function can have a int* as well as const int* type argument.
+
+4) Defining Class Data members as const
+------------------------------------------
+    These are data variables in class which are defined using const keyword.
+    They are not initialized during declaration. Their initialization is done in the constructor.
+
+    class Test
+    {
+        const int i;
+        public:
+        Test(int x):i(x)
+        {
+            cout << "\ni value set: " << i;
+        }
+    };
+
+    int main()
+    {
+        Test t(10);
+        Test s(20);
+    }
+    In this program, i is a constant data member, in every object its independent copy will be present,
+    hence it is initialized with each object using the constructor.
+    And once initialized, its value cannot be changed.
+
+5) Defining Class Object as const
+--------------------------------------
+    When an object is declared or created using the const keyword, its data members can never be changed, during the object's lifetime.
+
+    Syntax:
+
+    const class_name object;
+    For example, if in the class Test defined above, we want to define a constant object, we can do it like:
+
+    const Test r(30);
+
+6) Defining Class's Member function as const
+------------------------------------------------
+    A const member functions never modifies data members in an object.
+    Syntax:
+        return_type function_name() const;
+
+    class StarWars
+    {
+        public:
+        int i;
+        StarWars(int x)    // constructor
+        { 
+            i = x; 
+        }
+
+        int falcon() const  // constant function
+        { 
+            /* 
+                can do anything but will not
+                modify any data members
+            */
+            cout << "Falcon has left the Base";
+        }
+
+        int gamma()
+        { 
+            i++; 
+        }
+    };
+
+    int main()
+    {
+        StarWars objOne(10);        // non const object
+        const StarWars objTwo(20);      // const object
+
+        objOne.falcon();     // No error
+        objTwo.falcon();     // No error
+
+        cout << objOne.i << objTwo.i;
+
+        objOne.gamma();     // No error
+        objTwo.gamma();     // Compile time error
+    }
+
+Mutable Keyword
+-----------------
+mutable keyword is used with member variables of class, which we want to change even if the object is of const type.
+Hence, mutable data members of a const objects can be modified
+
+class Zee
+{
+    int i;
+    mutable int j;
+    public:
+    Zee()
+    {
+        i = 0; 
+        j = 0;
+    }
+    
+    void fool() const
+    { 
+        i++;    // will give error
+        j++;    // works, because j is mutable
+    }
+};
+
+int main()
+{
+    const Zee obj;
+    obj.fool();
+}
+-----------------------------------------------------------------------------------------------------------------------
+
