@@ -1,8 +1,9 @@
-NAME = replace
+NAME = karen
 
 SOURCES = main.cpp \
+Karen.cpp \
 
-HEADER_FILES =  \
+HEADER_FILES = Karen.hpp \
 
 OBJS = $(SOURCES:.cpp=.o)
 
