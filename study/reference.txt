@@ -100,15 +100,15 @@ int main()
 >Functions with Default Arguments		****
 -----------------------------------
 *********************************************************
-When we mention a default value for a parameter while declaring the function, it is said to be as default argument. In this case, even if we make a call to the function without passing any value for that parameter, the function will take the default value specified.
+When we mention a default value for a parameter while declaring the function, it is said to be as default argument.
+In this case, even if we make a call to the function without passing any value for that parameter, the function will take the default value specified.
 
 sum(int x, int y=0)
 {
     cout << x+y;
 }
-Copy
-Here we have provided a default value for y, during function definition.
 
+Here we have provided a default value for y, during function definition.
 
 int main()
 {
@@ -296,15 +296,16 @@ int main
     const int j = i + 10;     // works fine
     i++;    // this leads to Compile time error   
 }
-In the above code we have made i as constant, hence if we try to change its value, we will get compile time error. Though we can use it for substitution for other variables.
+In the above code we have made i as constant, hence if we try to change its value, we will get compile time error.
+Though we can use it for substitution for other variables.
 
 2) Pointers with const keyword in C++
 --------------------------------------------
 
 	-Pointers can be declared using const keyword too. 
 	-When we use const with pointers, we can do it in two ways, 
-		2.a>either we can apply const to what the pointer is pointing to, or 
-		2.b>we can make the pointer itself a constant.
+		2.a> either we can apply const to what the pointer is pointing to, or 
+		2.b> we can make the pointer itself a constant.
 	
 
 	2.A - Pointer to a const variable
@@ -495,3 +496,81 @@ int main()
 }
 -----------------------------------------------------------------------------------------------------------------------
 
+
+
+
+
+*********************************************************************************************
+Intro to Fixed point number
+
+*********************************************************************************************
+    
+    Good reads
+    https://inst.eecs.berkeley.edu//~cs61c/sp06/handout/fixedpt.html
+    
+    https://www.codeproject.com/Articles/37636/Fixed-Point-Class
+
+
+Fixed point and floating pint number conversions
+
+
+    https://embeddedartistry.com/blog/2018/07/12/simple-fixed-point-conversion-in-c/
+
+
+
+
+/*
+
+For explaining the conversion of float to fixed and vice versa through bits representation
+
+float     num = 10.1234f;
+
+std::cout << "Value of num is - " << num << std::endl;
+std::bitset<32> y(num);
+std::cout << "Bitset for num" << std::endl;
+std::cout << y << std::endl;
+
+num = roundf(num * (1 << 8));
+std::cout << "New Value of num is - " << num << std::endl;
+std::bitset<32> z(num);
+std::cout << "Bitset for num" << std::endl;
+std::cout << z << std::endl;
+
+num =  (float)num / ((1 << 8));
+std::cout << "og Value of num is - " << num << std::endl;
+std::bitset<32> x(num);
+std::cout << "Bitset for num" << std::endl;
+std::cout << x << std::endl;
+
+*/
+
+------------------------------------------------------------------------------------------- 
+
+
+****************************************************************
+
+Operator overload 
+
+****************************************************************
+
+https://docs.microsoft.com/vi-vn/cpp/cpp/general-rules-for-operator-overloading?view=msvc-160
+
+The following rules constrain how overloaded operators are implemented. However, they do not apply to the new and delete operators, which are covered separately.
+
+You cannot define new operators, such as ..
+
+You cannot redefine the meaning of operators when applied to built-in data types.
+
+Overloaded operators must either be a nonstatic class member function or a global function.
+A global function that needs access to private or protected class members must be declared as a friend of that class.
+A global function must take at least one argument that is of class or enumerated type or that is a reference to a class or enumerated type
+. For example:
+
+
+
+
+https://www.codeproject.com/Articles/37636/Fixed-Point-Class
+
+https://en.cppreference.com/w/cpp/language/operator_incdec
+
+https://en.cppreference.com/w/cpp/language/copy_assignment
