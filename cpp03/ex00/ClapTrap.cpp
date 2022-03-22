@@ -43,7 +43,7 @@ _hit_point(10),
 _energy_points(10),
 _attack_damage(0)
 {
-    std::cout << "(Name consturctor)\t A new Named ClapTrap called - " << this->_name <<
+    std::cout << "(Name Claptrap)\t A new Named ClapTrap called - " << this->_name <<
     " Is hereee ....!!!" <<  std::endl;
 }
 

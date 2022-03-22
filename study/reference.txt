@@ -197,9 +197,11 @@ int main()
 
 In above case we have defined two constructors with different parameters, hence overloading the constructors.
 
-One more important thing, if you define any constructor explicitly, then the compiler will not provide default constructor and you will have to define it yourself.
+One more important thing, if you define any constructor explicitly, then the compiler will not provide default constructor 
+and you will have to define it yourself.
 
-In the above case if we write Student S; in main(), it will lead to a compile time error, because we haven't defined default constructor, and compiler will not provide its default constructor because we have defined other parameterized constructors.
+In the above case if we write Student S; in main(), it will lead to a compile time error, because we haven't defined default constructor,
+ and compiler will not provide its default constructor because we have defined other parameterized constructors.
 
 
 Destructors in C++
@@ -413,7 +415,8 @@ NOTE: We can also have a const pointer pointing to a const variable.
 
 5) Defining Class Object as const
 --------------------------------------
-    When an object is declared or created using the const keyword, its data members can never be changed, during the object's lifetime.
+    When an object is declared or created using the const keyword, its data members can never be changed,
+     during the object's lifetime.
 
     Syntax:
 
@@ -555,7 +558,8 @@ Operator overload
 
 https://docs.microsoft.com/vi-vn/cpp/cpp/general-rules-for-operator-overloading?view=msvc-160
 
-The following rules constrain how overloaded operators are implemented. However, they do not apply to the new and delete operators, which are covered separately.
+The following rules constrain how overloaded operators are implemented. 
+However, they do not apply to the new and delete operators, which are covered separately.
 
 You cannot define new operators, such as ..
 

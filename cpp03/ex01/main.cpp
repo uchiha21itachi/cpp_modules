@@ -3,9 +3,9 @@
 
 int main()
 {
-    ScavTrap a, b("RAVENN"), c(b), d("TRYNDAMEREE");
+    ScavTrap a, b("RAVENN");//, c(b), d("TRYNDAMEREE");
     ClapTrap crazy("Sonna");
-    a = d;
+    // a = d;
     
     std::cout << "\n\n\n" << std::endl;
     std::cout << "---------------Game starts here-----------------\n" << std::endl;
@@ -13,7 +13,7 @@ int main()
     b.takeDamage(a.getAttackDamage());
     b.beRepaired(30);
     a.attack(crazy.getName());
-
+    a.guardGate();
     std::cout << "--------------------end-------------------------\n" << std::endl;
     return (0);
 }
