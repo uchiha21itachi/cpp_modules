@@ -39,9 +39,7 @@ int main()
 		dodo.takeDamage(50);
         dodo.beRepaired(50);
         std::cout << "--------------------end-------------------------\n" << std::endl;
-
     }
-    
     
     return (0);
 }

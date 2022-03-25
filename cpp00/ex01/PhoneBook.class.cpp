@@ -52,11 +52,24 @@ void    PhoneBook::_print_detail_contact(int index)
     std::cout << "\nDarkest Secret - " << this->_contact_list[index -1].get_darkest_secret() << std::endl;
 }
 
+int  get_num(std::string input)
+{
+    // int num;
+
+    std::cout << (int)input[0];
+    for(int i = 0; i < 9; i++)
+    {
+        std::cout << i;
+    }
+    return (0);
+}
+
 void PhoneBook::search_contact(void)
 {
-    int     i;
-    int     j;
-    int     input = 0;
+    int             i;
+    int             j;
+    std::string     input;
+    int             num;
 
     i = 0;
     std::cout << "Inside search contact" << std::endl;
@@ -94,17 +107,23 @@ void PhoneBook::search_contact(void)
         std::cin >> input;
         std::cout << "\n";
         std::cout << "\n----------------------------------------------\n" << std::endl;
-        if (input > 0 && input <= 8)
+
+        if (input.size() == 1)
         {
-            this->_print_detail_contact(input);
-            i = 1;
+            num = (int)input[0] - 48;
+            if (num > 0 && num < 9)
+            {
+                this->_print_detail_contact(num);
+                i = 1;
+            }
+            else if (num == 0)
+                i = 1;
+            else
+                std::cout << "Please enter correct output -- usage - [0 = exit] [1-8 = contact]";
         }
-        else if (input == 0)
-            i = 1;
         else
             std::cout << "Please enter correct output -- usage - [0 = exit] [1-8 = contact]";
     }
-
 }
 
 void PhoneBook::add_contact(void)

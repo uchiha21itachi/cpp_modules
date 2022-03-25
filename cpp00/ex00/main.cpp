@@ -23,8 +23,11 @@ int main(int argc, char *argv[])
 				i++;
 			}
 			std::cout << argv[j];
+			if (j + 1 < argc)
+				std::cout << " ";
 			j++;
 		}
+		std::cout << std::endl;
 	}
 	return (0);
 }

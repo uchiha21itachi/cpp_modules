@@ -1,4 +1,4 @@
-NAME = phonebook
+NAME = Account
 
 SOURCES = Account.cpp \
 tests.cpp \
