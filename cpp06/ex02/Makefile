@@ -1,17 +1,8 @@
-NAME = Animal
+NAME = identify
 
 SOURCES = main.cpp \
-Animal.cpp \
-Dog.cpp \
-Cat.cpp \
-WrongAnimal.cpp \
-WrongCat.cpp \
 
-HEADER_FILES = Animal.hpp \
-Cat.hpp \
-Dog.hpp \
-WrongAnimal.hpp \
-WrongCat.hpp \
+HEADER_FILES = 	Base.hpp \
 
 OBJS = $(SOURCES:.cpp=.o)
 

@@ -6,12 +6,14 @@ Dog.cpp \
 Cat.cpp \
 WrongAnimal.cpp \
 WrongCat.cpp \
+Brain.cpp \
 
 HEADER_FILES = Animal.hpp \
 Cat.hpp \
 Dog.hpp \
 WrongAnimal.hpp \
 WrongCat.hpp \
+Brain.hpp \
 
 OBJS = $(SOURCES:.cpp=.o)
 

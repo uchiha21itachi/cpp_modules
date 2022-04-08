@@ -1,17 +1,19 @@
 NAME = Animal
 
 SOURCES = main.cpp \
-Animal.cpp \
+AAnimal.cpp \
 Dog.cpp \
 Cat.cpp \
 WrongAnimal.cpp \
 WrongCat.cpp \
+Brain.cpp \
 
-HEADER_FILES = Animal.hpp \
+HEADER_FILES = AAnimal.hpp \
 Cat.hpp \
 Dog.hpp \
 WrongAnimal.hpp \
 WrongCat.hpp \
+Brain.hpp \
 
 OBJS = $(SOURCES:.cpp=.o)
 
